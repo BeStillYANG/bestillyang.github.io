@@ -44,7 +44,18 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          "${{ runner.temp }}/hugo-bin/hugo" --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          set +e
+          "${{ runner.temp }}/hugo-bin/hugo" --minify --baseURL "${{ steps.pages.outputs.base_url }}/" > "${{ runner.temp }}/build.log" 2>&1
+          code=$?
+          if [ $code -ne 0 ]; then
+            echo '### Hugo build failed' >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            tail -50 "${{ runner.temp }}/build.log" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            cat "${{ runner.temp }}/build.log"
+            exit $code
+          fi
+          tail -5 "${{ runner.temp }}/build.log"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
   deploy:
