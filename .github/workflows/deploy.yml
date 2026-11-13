@@ -43,7 +43,8 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-        run: "${{ runner.temp }}/hugo-bin/hugo" --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: |
+          "${{ runner.temp }}/hugo-bin/hugo" --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
   deploy:
