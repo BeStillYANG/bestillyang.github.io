@@ -1,0 +1,82 @@
+baseURL = 'https://bestillyang.github.io/'
+languageCode = 'zh-cn'
+DefaultContentLanguage = 'zh-cn'
+title = '老杨的小站'
+hasCJKLanguage = true
+theme = 'stack'
+
+[pagination]
+  pagerSize = 5
+
+[permalinks]
+  post = '/p/:slug/'
+  page = '/:slug/'
+
+[params]
+  mainSections = ['post']
+  featuredImageField = 'image'
+  rssFullContent = true
+
+  [params.footer]
+    since = 2026
+    customText = '老杨 · 安徽芜湖'
+
+  [params.dateFormat]
+    published = '2006-01-02'
+    lastUpdated = '2006-01-02'
+
+  [params.sidebar]
+    compact = false
+    avatar = ''
+
+  [params.article]
+    headingAnchor = false
+    math = false
+    toc = true
+    readingTime = true
+    [params.article.list]
+      showTags = true
+
+  [params.colorScheme]
+    toggle = true
+    default = 'auto'
+
+  [params.comments]
+    enabled = false
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = '首页'
+    url = '/'
+    weight = 1
+    [menu.main.params]
+      icon = 'home'
+  [[menu.main]]
+    identifier = 'archives'
+    name = '归档'
+    url = '/archives/'
+    weight = 2
+    [menu.main.params]
+      icon = 'archives'
+  [[menu.main]]
+    identifier = 'about'
+    name = '关于'
+    url = '/about/'
+    weight = 3
+    [menu.main.params]
+      icon = 'user'
+  [[menu.main]]
+    identifier = 'search'
+    name = '搜索'
+    url = '/search/'
+    weight = 4
+    [menu.main.params]
+      icon = 'search'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
