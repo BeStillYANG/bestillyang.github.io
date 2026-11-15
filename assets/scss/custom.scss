@@ -1,0 +1,14 @@
+/*
+ * WB 默认配色
+ * 色值取自 WorkBuddy 界面截图像素采样（2026-11-15）：
+ *   侧栏/页面底 #f7f7f7、卡片 #ffffff、强调按钮 #1a1a1a、分隔线 #e6e6e6
+ * 只覆盖浅色模式；深色模式由主题原有 :root[data-scheme="dark"] 规则接管。
+ * 本文件位于项目根，不修改 themes/stack/。
+ */
+:root {
+    --body-background: #f7f7f7;
+    --accent-color: #1a1a1a;
+    --accent-color-darker: #000000;
+    --body-text-color: #595959;
+    --card-separator-color: #e6e6e6;
+}
