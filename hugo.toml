@@ -19,7 +19,7 @@ theme = 'stack'
 
   [params.footer]
     since = 2026
-    customText = '老杨 · 安徽芜湖'
+    customText = '老杨'
 
   [params.dateFormat]
     published = '2006-01-02'
